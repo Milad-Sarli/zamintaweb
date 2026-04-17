@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="light" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>فروشگاه تجهیزات پزشکی</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans+Arabic:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "secondary": "#212b36",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Sans Arabic", "Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] overflow-x-hidden flex flex-col min-h-screen">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+<div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-16 sm:h-20 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3 min-w-fit">
+<div class="size-9 text-primary bg-blue-50 rounded-lg flex items-center justify-center">
+<svg class="size-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h2 class="text-[#111418] text-xl sm:text-2xl font-black tracking-tight hidden sm:block">مدیکال شاپ</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-primary text-sm font-bold" href="#">خانه</a>
+<a class="text-[#111418] text-sm font-medium hover:text-primary transition-colors" href="#">محصولات</a>
+<a class="text-[#111418] text-sm font-medium hover:text-primary transition-colors" href="#">برندها</a>
+<a class="text-[#111418] text-sm font-medium hover:text-primary transition-colors" href="#">مجله سلامتی</a>
+<a class="text-[#111418] text-sm font-medium hover:text-primary transition-colors" href="#">تماس با ما</a>
+</nav>
+<div class="hidden md:flex flex-1 max-w-md mx-6">
+<div class="relative w-full group">
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="block w-full rounded-xl border-0 bg-slate-100 py-2.5 pr-10 pl-4 text-sm text-[#111418] ring-0 placeholder:text-slate-400 focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm" placeholder="جستجوی محصول، برند یا دسته..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2 sm:gap-3">
+<button class="hidden sm:flex h-10 px-5 bg-primary hover:bg-blue-600 text-white text-sm font-bold rounded-xl items-center justify-center transition-all shadow-md shadow-blue-500/20">
+<span>ورود</span>
+</button>
+<button class="relative flex size-10 items-center justify-center rounded-xl bg-slate-100 hover:bg-slate-200 text-[#111418] transition-colors group">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">shopping_cart</span>
+<span class="absolute -top-1.5 -right-1.5 flex size-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white border-2 border-white">2</span>
+</button>
+<button class="lg:hidden flex size-10 items-center justify-center rounded-xl bg-slate-100 text-[#111418]">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<div class="md:hidden px-4 pb-3 border-t border-slate-100 pt-3">
+<div class="relative w-full">
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="block w-full rounded-xl border-0 bg-slate-100 py-2.5 pr-10 pl-4 text-sm text-[#111418] ring-0 focus:ring-2 focus:ring-primary focus:bg-white" placeholder="جستجو..." type="text"/>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full flex flex-col gap-16 pb-16">
+<section class="relative w-full overflow-hidden bg-slate-900">
+<div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAb3Zbp0zMJaixTUKHEaA-qxUn9FF0PedgqhpelwabptgXxrF6-1QReMfo3FPH0Ipk0VJJ82SwVaQD4e63dOKAXAHJlDcpLQbtvx0-h4Qmr8wiy3eYcbBTvA3I-r_eZSdr0c4JpbjGtZn9F8AuPHXPQ-g9Dej7m4O6jeDRVmAKPpe07pq7pOHICZjjBCBfF3CfhsU31JX_U7H6d0WUhyOsF3JiS_50NLpw9HYQjt9-rEn_zxBbToE6CHjmX-xlBjuXDXxDddCu74tY"); opacity: 0.4;'></div>
+<div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent"></div>
+<div class="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-[500px] md:h-[600px] flex flex-col justify-center gap-8">
+<div class="max-w-3xl space-y-6">
+<div class="inline-flex items-center gap-2 rounded-full bg-blue-500/20 border border-blue-400/30 px-3 py-1 backdrop-blur-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+</span>
+<span class="text-xs font-bold text-blue-100">جشنواره فروش ویژه پاییزه</span>
+</div>
+<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight drop-shadow-sm">
+                    تکنولوژی برای <br/> <span class="text-transparent bg-clip-text bg-gradient-to-l from-blue-400 to-primary">زندگی سالم‌تر</span>
+</h1>
+<p class="text-lg text-slate-300 max-w-2xl leading-relaxed">
+                    دسترسی به جدیدترین و پیشرفته‌ترین تجهیزات پزشکی جهان. ما سلامت شما را با بهترین ابزارهای تشخیصی و درمانی تضمین می‌کنیم.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="h-14 px-8 rounded-xl bg-primary hover:bg-blue-600 text-white text-lg font-bold shadow-xl shadow-blue-500/30 hover:-translate-y-1 transition-all flex items-center gap-2">
+<span>خرید محصولات</span>
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<button class="h-14 px-8 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-lg font-bold backdrop-blur-md hover:-translate-y-1 transition-all">
+                        مشاوره رایگان
+                    </button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+<div class="w-12 h-1.5 bg-primary rounded-full"></div>
+<div class="w-2 h-1.5 bg-white/30 rounded-full hover:bg-white/60 cursor-pointer transition-colors"></div>
+<div class="w-2 h-1.5 bg-white/30 rounded-full hover:bg-white/60 cursor-pointer transition-colors"></div>
+</div>
+</section>
+<section class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl -mt-10 relative z-10">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white rounded-2xl p-6 shadow-xl shadow-slate-200/50 border border-slate-100">
+<div class="flex items-center gap-4 p-2">
+<div class="size-12 rounded-full bg-blue-50 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">local_shipping</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-[#111418]">ارسال سریع</h3>
+<p class="text-xs text-slate-500 mt-1">تحویل فوری سراسر کشور</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-2 border-r md:border-r-0 border-slate-100">
+<div class="size-12 rounded-full bg-green-50 text-green-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">verified</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-[#111418]">ضمانت اصالت</h3>
+<p class="text-xs text-slate-500 mt-1">کالای ۱۰۰٪ اورجینال</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-2 md:border-r border-slate-100">
+<div class="size-12 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">headset_mic</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-[#111418]">مشاوره تخصصی</h3>
+<p class="text-xs text-slate-500 mt-1">پشتیبانی ۲۴ ساعته</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-2 border-r md:border-r-0 border-slate-100">
+<div class="size-12 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">credit_card</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-[#111418]">پرداخت امن</h3>
+<p class="text-xs text-slate-500 mt-1">درگاه بانکی معتبر</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold text-slate-800">برندهای همکار</h2>
+</div>
+<div class="flex flex-wrap justify-center sm:justify-between items-center gap-8 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="text-2xl font-black text-slate-400 hover:text-primary transition-colors cursor-pointer">PHILIPS</div>
+<div class="text-2xl font-black text-slate-400 hover:text-blue-800 transition-colors cursor-pointer">OMRON</div>
+<div class="text-2xl font-black text-slate-400 hover:text-red-600 transition-colors cursor-pointer">Beurer</div>
+<div class="text-2xl font-black text-slate-400 hover:text-green-600 transition-colors cursor-pointer">Rossmax</div>
+<div class="text-2xl font-black text-slate-400 hover:text-cyan-600 transition-colors cursor-pointer">Braun</div>
+<div class="text-2xl font-black text-slate-400 hover:text-slate-900 transition-colors cursor-pointer">Medisana</div>
+</div>
+</div>
+</section>
+<section class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+<div class="flex items-end justify-between mb-8">
+<div>
+<span class="text-primary font-bold text-sm mb-2 block">دسته‌بندی‌ها</span>
+<h2 class="text-3xl font-black text-[#111418]">آنچه نیاز دارید</h2>
+</div>
+<a class="hidden sm:flex items-center gap-1 text-slate-500 hover:text-primary font-bold text-sm transition-colors" href="#">
+                مشاهده همه
+                <span class="material-symbols-outlined text-lg rotate-180">arrow_right_alt</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+<a class="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_X9mgunrRga0LDedz00eN-WjjVtlhpVsBS5CnF9qZnRJsAEPG_tOnAm4bYOOPOAtu6cwhQgqwR_MuyhHGlZDQV8ebjYz0KHTrHVD7dyQjN3QQaeVTUBOaSVtpWITx6SlDxJCMpJSwqMa3f3unzjnhWD4EfefzojFXocGVx2i72y9HJo-red5CNfpEJsCO_SGdLNK3PfMz_OwrRFbuyUhWVAS322-abbyqP7T4vjZWCjaPRLA2dht9nYZKyaDqHNXjqNk8YZ5ZuaQ");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 right-0 p-4 text-center">
+<div class="size-12 mx-auto bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-3 text-white border border-white/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">local_hospital</span>
+</div>
+<h3 class="text-white font-bold text-lg">تجهیزات بیمارستانی</h3>
+</div>
+</a>
+<a class="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDW2e3OPM70NfJlI4CZLwyO-BFc1JawCTGjlzs5U435fVoHGBfOTVTam6O_agxIj0n4P_8v3sppPAA_4svqgf2PWpYDH7PrT32VyI_Ua5jVyULPQj1c58ZzPI94DAS1C8JuZqm6myOwssFy-AkTQBDFLthmjAM8lRzQ24fF8Iia5nLPcVDkmHH6NIoSpWfT0BGI2ECuCzJ2q8gzTLAxBsZ9VRHGM5bgOxI0ydg-p3TqFZpWftJZ972gEg9ldTsJukW1kf3qVcHX4Y8");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 right-0 p-4 text-center">
+<div class="size-12 mx-auto bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-3 text-white border border-white/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">sanitizer</span>
+</div>
+<h3 class="text-white font-bold text-lg">لوازم مصرفی</h3>
+</div>
+</a>
+<a class="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNeB8x2If2Ig_gUSkbPURCEjazUBlACopoQs_Ug-HVbB8iAWQ1TyOeI22Riptj4leNuldgYr6sa00YHMV7dZOOIu6VloJH-yj5NWEok7J6J3m-RUNDIwVGn9x5TWLEQQuGm0grr_TPZhUJidYhNgBLjAhn78V4Kf515mNne_RQjHeezFZej0j7nGxiBvOJoscB4wRr-MOCHZm5RWRPYGWTCj2movTr01hZp4anccayq76iVB_ontA52ly1YkjItUeMV8J2mWNQwF0");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 right-0 p-4 text-center">
+<div class="size-12 mx-auto bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-3 text-white border border-white/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">medical_services</span>
+</div>
+<h3 class="text-white font-bold text-lg">ابزار جراحی</h3>
+</div>
+</a>
+<a class="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmsGjIhvp298vAmhQZMpGC76aIHd1ww0ulQoySE71_Y4yygPkV_9gJN8rNvhl7eZ6MfQ1kuAa2LSYngIS-VgM6BciHqyTVUTwCCM0Y-mTXv17bG77Ws0U28uf7WHbuogb6m9y2V2VlK_9dpOlHIksIs68Meq477jbO4yHCat74Lr_IRPla2cNYoTR50aRmUrS0fMFqfDZwI4N8a9CZsKdQSzWYLz69zthZe9kefwPYO8uUeC-FU_GzW-V1NYurJY-vyV0uvxqhwkc");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 right-0 p-4 text-center">
+<div class="size-12 mx-auto bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-3 text-white border border-white/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">monitor_heart</span>
+</div>
+<h3 class="text-white font-bold text-lg">تشخیصی</h3>
+</div>
+</a>
+<a class="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100 hidden lg:block" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6vfKkKmXIf6-TWzAKZkWg40kDwABPdoQgD1iBqOOQav6d24nU10-poQf-vcCA4ofBvW8_PCSSoPFXBxR7giHIpEblBR2iIOYUuWb8obR96wJSgiRlgw4n2jD_AFCGRgSmpnYyLcsKhmoXTLGy0z2mBDNIaTcEz9lWDGNsEjoyY1ZZmL5-4FD_w979bGR_grUh5QgGbgpCWAxHa9H6ACuVkbH9TwkjJCPYN7HCc1UnZ-NjQdAanXEGjK4NsvB-E0RZSy6WOFZlIvk");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 right-0 p-4 text-center">
+<div class="size-12 mx-auto bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-3 text-white border border-white/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">home_health</span>
+</div>
+<h3 class="text-white font-bold text-lg">مراقبت در منزل</h3>
+</div>
+</a>
+</div>
+</section>
+<section class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl sm:text-3xl font-black text-[#111418]">پیشنهادات ویژه هفته</h2>
+<div class="flex gap-2">
+<button class="size-10 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-100 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="size-10 rounded-full bg-primary text-white shadow-lg shadow-blue-500/30 flex items-center justify-center hover:bg-blue-600 transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+<div class="group bg-white rounded-3xl p-3 border border-slate-100 hover:border-blue-100 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
+<div class="relative bg-slate-50 rounded-2xl overflow-hidden aspect-square mb-4">
+<div class="absolute top-3 right-3 z-10 bg-red-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-red-500/20 shadow-md">-20%</div>
+<div class="w-full h-full bg-contain bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-500 mix-blend-multiply p-6" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAx2l7j_EDNrbOBMZqhTU3QRiqKDoGrMhENPlTxc2TEFQF1fHMSKAHXrTQIJCIbj6_2CZM3iFiNFC3qvyHsX-IdVBYhU_TZRbzuPDXO2u1UjtNeM80_7727IopTjA_rwGtPjqEFYkDQsbPoYdGf_6uiewwYE8MxleyKOzXwxEMAyOU_EoJXMrSzOwYnfJZOhBWdm9b-ZyrkYmGsO_dfq59UlO6JSsvL5bXlEF1W0o41NcH-gUiza3aGYOHMotSyXseqOCfPt64C-F4");'></div>
+<button class="absolute bottom-3 left-3 size-9 bg-white rounded-full text-slate-400 hover:text-red-500 hover:bg-red-50 shadow-md flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="px-2 pb-2">
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-yellow-400 text-[18px] fill-current">star</span>
+<span class="text-xs font-bold text-slate-700 pt-0.5">4.8</span>
+<span class="text-[10px] text-slate-400 mr-1">(120 نظر)</span>
+</div>
+<h3 class="font-bold text-[#111418] text-lg mb-1 group-hover:text-primary transition-colors cursor-pointer">پالس اکسیمتر دیجیتال</h3>
+<p class="text-slate-500 text-xs mb-4 line-clamp-2">دقت بالا، نمایشگر OLED، خاموشی خودکار</p>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-slate-400 text-xs line-through decoration-red-400/50">450,000</span>
+<span class="text-[#111418] font-black text-lg">360,000 <span class="text-xs font-normal text-slate-500">تومان</span></span>
+</div>
+<button class="size-10 rounded-xl bg-slate-100 text-slate-800 hover:bg-primary hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[22px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group bg-white rounded-3xl p-3 border border-slate-100 hover:border-blue-100 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
+<div class="relative bg-slate-50 rounded-2xl overflow-hidden aspect-square mb-4">
+<div class="w-full h-full bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-500" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCy4hFoW1OQnRkKwxft81xLMy91k5jOGi8TUDuwJAziq3V-LQ3TeqNNl49-ZSwyPWAIvSFAc0mKGjh9ckIjHPVaULlXd3dpq0vZEfjHfXdkCE4LOIdIaAXbUnZCLDuZn4N9fsqpu1Sh3u_S982yqp8u1G5kh8e7UYdTl_-tYNQEx_MTtbdYG2flMzGzGuc5G6eBkOk5o9ZRyreTi7XNTSySrQj0DVQks5eBsEHuesVKVVKRv5leJRXOiuVFzl1DL6D1uqslgvFobU8");'></div>
+</div>
+<div class="px-2 pb-2">
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-yellow-400 text-[18px] fill-current">star</span>
+<span class="text-xs font-bold text-slate-700 pt-0.5">4.5</span>
+</div>
+<h3 class="font-bold text-[#111418] text-lg mb-1 group-hover:text-primary transition-colors cursor-pointer">تب‌سنج لیزری</h3>
+<p class="text-slate-500 text-xs mb-4 line-clamp-2">بدون تماس، دقت 0.1 درجه، هشدار تب</p>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[#111418] font-black text-lg">850,000 <span class="text-xs font-normal text-slate-500">تومان</span></span>
+</div>
+<button class="size-10 rounded-xl bg-slate-100 text-slate-800 hover:bg-primary hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[22px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group bg-white rounded-3xl p-3 border border-slate-100 hover:border-blue-100 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
+<div class="relative bg-slate-50 rounded-2xl overflow-hidden aspect-square mb-4">
+<div class="w-full h-full bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-500" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAU6hZP_Z76aFJ70EO6ZN_dJYB0tXWE59kw2RNajCfweriqU5pnxqhG9dYZ2VUB0Y1quCWOo772qZSIF1OkkH9SQe_InBD6nAL8NVEx2KwEkiUtsu5jYQV0mwLci7hZTc3fBURZQBoQVscnGuVY2MDV3gQ-V55dOEiapmBOZdr9ZstDKYkj1ZIkHhe6AwuoEpd6z2wNOMJRVMgJR_z5J_xrdtoiI-F-EpA4maMXOSNgtbS0z-0UQk8VocEFvkLwTk5Gx6zDa1DE0zk");'></div>
+</div>
+<div class="px-2 pb-2">
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-yellow-400 text-[18px] fill-current">star</span>
+<span class="text-xs font-bold text-slate-700 pt-0.5">4.9</span>
+</div>
+<h3 class="font-bold text-[#111418] text-lg mb-1 group-hover:text-primary transition-colors cursor-pointer">فشارسنج بازویی</h3>
+<p class="text-slate-500 text-xs mb-4 line-clamp-2">سخنگو به زبان فارسی، دارای آداپتور</p>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[#111418] font-black text-lg">1,200,000 <span class="text-xs font-normal text-slate-500">تومان</span></span>
+</div>
+<button class="size-10 rounded-xl bg-slate-100 text-slate-800 hover:bg-primary hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[22px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group bg-white rounded-3xl p-3 border border-slate-100 hover:border-blue-100 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
+<div class="relative bg-slate-50 rounded-2xl overflow-hidden aspect-square mb-4">
+<div class="w-full h-full bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-500" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfzkn_TLcPwCZwd6G0JCNDmn08inHXoZ6tSUEdW9O96SkUDRHW7-BeFFIJkKb3nx-WS3hc_0XyTFJWMVbNasMqGXr51KoVOd49HtYQYiq8nLGzgnfq_DWZZyEbiAvRXXI79F9iiyU-hR79KdeGFhZ7nMyCXnb3Mz2lzMEZaqOBXGlZwnFxM3hz4fxKKg0FsiGLhYiHgICUFCKZ8rwQPgP14UyIR5FtRrx4cO6MnQ-veYK9_bOvFCR58Z-MwsyPcKwuyD8Wg7MdIyk");'></div>
+</div>
+<div class="px-2 pb-2">
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-yellow-400 text-[18px] fill-current">star</span>
+<span class="text-xs font-bold text-slate-700 pt-0.5">4.7</span>
+</div>
+<h3 class="font-bold text-[#111418] text-lg mb-1 group-hover:text-primary transition-colors cursor-pointer">ویلچر ارتوپدی</h3>
+<p class="text-slate-500 text-xs mb-4 line-clamp-2">تاشو، زیردستی متحرک، کفی فایبرگلاس</p>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[#111418] font-black text-lg">4,800,000 <span class="text-xs font-normal text-slate-500">تومان</span></span>
+</div>
+<button class="size-10 rounded-xl bg-slate-100 text-slate-800 hover:bg-primary hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[22px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full bg-slate-50 py-16">
+<div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+<div class="text-center mb-12">
+<span class="text-primary font-bold text-sm">نظرات مشتریان</span>
+<h2 class="text-3xl font-black text-[#111418] mt-2">چرا مدیکال شاپ؟</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 relative">
+<div class="absolute -top-5 right-8 size-10 bg-primary text-white flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-[24px]">format_quote</span>
+</div>
+<p class="text-slate-600 leading-relaxed mb-6 mt-2">
+                        "کیفیت محصولات عالی بود و بسته‌بندی بسیار ایمن انجام شده بود. دستگاه فشارسنج دقیقاً همونی بود که تو توضیحات نوشته بودن. ممنون از ارسال سریعتون."
+                    </p>
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-lg">س</div>
+<div>
+<h4 class="font-bold text-sm text-[#111418]">سارا محمدی</h4>
+<p class="text-xs text-slate-400">خرید دستگاه فشار خون</p>
+</div>
+<div class="mr-auto flex text-yellow-400 text-[14px]">
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 relative">
+<div class="absolute -top-5 right-8 size-10 bg-primary text-white flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-[24px]">format_quote</span>
+</div>
+<p class="text-slate-600 leading-relaxed mb-6 mt-2">
+                        "پشتیبانی سایت فوق‌العاده صبور و حرفه‌ای بود. برای انتخاب ویلچر مناسب مادربزرگم خیلی راهنماییم کردن و بهترین گزینه رو پیشنهاد دادن."
+                    </p>
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold text-lg">ع</div>
+<div>
+<h4 class="font-bold text-sm text-[#111418]">علی رضایی</h4>
+<p class="text-xs text-slate-400">خرید تجهیزات توانبخشی</p>
+</div>
+<div class="mr-auto flex text-yellow-400 text-[14px]">
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star_half</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 relative">
+<div class="absolute -top-5 right-8 size-10 bg-primary text-white flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-[24px]">format_quote</span>
+</div>
+<p class="text-slate-600 leading-relaxed mb-6 mt-2">
+                        "من برای درمانگاهمون همیشه از اینجا خرید می‌کنم. قیمت‌ها نسبت به بازار خیلی منصفانه‌ست و اینکه جنس اصل تحویل میدن خیلی برام مهمه."
+                    </p>
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-lg">د</div>
+<div>
+<h4 class="font-bold text-sm text-[#111418]">دکتر کریمی</h4>
+<p class="text-xs text-slate-400">تجهیزات مطب</p>
+</div>
+<div class="mr-auto flex text-yellow-400 text-[14px]">
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+<div class="flex items-end justify-between mb-8">
+<h2 class="text-2xl sm:text-3xl font-black text-[#111418]">تازه ترین مقالات</h2>
+<a class="text-primary font-bold text-sm hover:underline" href="#">مشاهده وبلاگ</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<article class="flex flex-col gap-4 group">
+<div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-100 relative">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-bold px-3 py-1 rounded-full text-slate-800 z-10">۱۵ مهر ۱۴۰۳</div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAU6hZP_Z76aFJ70EO6ZN_dJYB0tXWE59kw2RNajCfweriqU5pnxqhG9dYZ2VUB0Y1quCWOo772qZSIF1OkkH9SQe_InBD6nAL8NVEx2KwEkiUtsu5jYQV0mwLci7hZTc3fBURZQBoQVscnGuVY2MDV3gQ-V55dOEiapmBOZdr9ZstDKYkj1ZIkHhe6AwuoEpd6z2wNOMJRVMgJR_z5J_xrdtoiI-F-EpA4maMXOSNgtbS0z-0UQk8VocEFvkLwTk5Gx6zDa1DE0zk");'></div>
+</div>
+<div>
+<span class="text-primary text-xs font-bold mb-2 block">راهنمای خرید</span>
+<h3 class="text-lg font-bold text-[#111418] mb-2 group-hover:text-primary transition-colors">نکات مهم در خرید دستگاه فشارسنج خانگی</h3>
+<p class="text-slate-500 text-sm line-clamp-2 leading-relaxed">
+                        انتخاب فشارسنج مناسب برای افراد مسن یا دارای بیماری‌های قلبی اهمیت زیادی دارد. در این مقاله به بررسی ویژگی‌های مهم...
+                    </p>
+</div>
+</article>
+<article class="flex flex-col gap-4 group">
+<div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-100 relative">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-bold px-3 py-1 rounded-full text-slate-800 z-10">۱۰ مهر ۱۴۰۳</div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAb3Zbp0zMJaixTUKHEaA-qxUn9FF0PedgqhpelwabptgXxrF6-1QReMfo3FPH0Ipk0VJJ82SwVaQD4e63dOKAXAHJlDcpLQbtvx0-h4Qmr8wiy3eYcbBTvA3I-r_eZSdr0c4JpbjGtZn9F8AuPHXPQ-g9Dej7m4O6jeDRVmAKPpe07pq7pOHICZjjBCBfF3CfhsU31JX_U7H6d0WUhyOsF3JiS_50NLpw9HYQjt9-rEn_zxBbToE6CHjmX-xlBjuXDXxDddCu74tY");'></div>
+</div>
+<div>
+<span class="text-primary text-xs font-bold mb-2 block">تکنولوژی پزشکی</span>
+<h3 class="text-lg font-bold text-[#111418] mb-2 group-hover:text-primary transition-colors">آینده سلامت دیجیتال در ایران</h3>
+<p class="text-slate-500 text-sm line-clamp-2 leading-relaxed">
+                        چگونه ابزارهای هوشمند سلامت در حال تغییر روش‌های درمان و مراقبت در منزل هستند؟ بررسی آخرین تکنولوژی‌ها...
+                    </p>
+</div>
+</article>
+<article class="flex flex-col gap-4 group">
+<div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-100 relative">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-bold px-3 py-1 rounded-full text-slate-800 z-10">۲ مهر ۱۴۰۳</div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_X9mgunrRga0LDedz00eN-WjjVtlhpVsBS5CnF9qZnRJsAEPG_tOnAm4bYOOPOAtu6cwhQgqwR_MuyhHGlZDQV8ebjYz0KHTrHVD7dyQjN3QQaeVTUBOaSVtpWITx6SlDxJCMpJSwqMa3f3unzjnhWD4EfefzojFXocGVx2i72y9HJo-red5CNfpEJsCO_SGdLNK3PfMz_OwrRFbuyUhWVAS322-abbyqP7T4vjZWCjaPRLA2dht9nYZKyaDqHNXjqNk8YZ5ZuaQ");'></div>
+</div>
+<div>
+<span class="text-primary text-xs font-bold mb-2 block">عمومی</span>
+<h3 class="text-lg font-bold text-[#111418] mb-2 group-hover:text-primary transition-colors">تجهیزات ضروری برای اتاق بیمار در منزل</h3>
+<p class="text-slate-500 text-sm line-clamp-2 leading-relaxed">
+                        اگر بیماری دارید که نیاز به مراقبت در منزل دارد، این لیست از تجهیزات می‌تواند به شما در نگهداری بهتر کمک کند...
+                    </p>
+</div>
+</article>
+</div>
+</section>
+<section class="w-full bg-primary py-16 mt-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-12 opacity-10">
+<svg class="size-64 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path></svg>
+</div>
+<div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
+<h2 class="text-3xl sm:text-4xl font-black text-white mb-4">عضویت در خبرنامه پزشکی</h2>
+<p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+                با عضویت در خبرنامه، از جدیدترین تخفیف‌ها، مقالات آموزشی و ورود محصولات جدید قبل از دیگران باخبر شوید.
+            </p>
+<form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+<input class="flex-1 rounded-xl border-0 px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-4 focus:ring-blue-400 outline-none" placeholder="آدرس ایمیل شما" required="" type="email"/>
+<button class="bg-slate-900 text-white font-bold px-8 py-4 rounded-xl hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/20" type="submit">
+                    عضویت
+                </button>
+</form>
+<p class="text-blue-200 text-xs mt-4">ما به حریم خصوصی شما احترام می‌گذاریم و اسپم ارسال نمی‌کنیم.</p>
+</div>
+</section>
+</main>
+<footer class="bg-secondary text-white pt-20 pb-8 border-t border-slate-700">
+<div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<div class="size-8 bg-primary rounded flex items-center justify-center text-white">
+<svg class="size-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-2xl font-black tracking-tight">مدیکال شاپ</span>
+</div>
+<p class="text-slate-400 text-sm leading-7 text-justify">
+                    مدیکال شاپ با بیش از ۱۰ سال تجربه، مرجع تخصصی نقد و بررسی و فروش اینترنتی کالاهای پزشکی و سلامتی در ایران است.
+                </p>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-primary hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">public</span></a>
+<a class="size-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-primary hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+<a class="size-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-primary hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">send</span></a>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg text-white mb-6">دسترسی سریع</h3>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 bg-slate-600 rounded-full"></span>درباره ما</a></li>
+<li><a class="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 bg-slate-600 rounded-full"></span>تماس با ما</a></li>
+<li><a class="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 bg-slate-600 rounded-full"></span>فرصت‌های شغلی</a></li>
+<li><a class="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 bg-slate-600 rounded-full"></span>قوانین و مقررات</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-lg text-white mb-6">محصولات پرطرفدار</h3>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 bg-slate-600 rounded-full"></span>فشارسنج دیجیتال</a></li>
+<li><a class="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 bg-slate-600 rounded-full"></span>دستگاه قند خون</a></li>
+<li><a class="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 bg-slate-600 rounded-full"></span>ماسک و مواد ضدعفونی</a></li>
+<li><a class="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 bg-slate-600 rounded-full"></span>تجهیزات ارتوپدی</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-lg text-white mb-6">تماس با پشتیبانی</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary mt-0.5">location_on</span>
+<p>تهران، خیابان ولیعصر، نرسیده به میدان ونک، برج نگار، طبقه ۵، واحد ۲۲</p>
+</div>
+<div class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary">phone_in_talk</span>
+<p class="text-right font-mono" dir="ltr">021 - 8888 1234</p>
+</div>
+<div class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary">mail</span>
+<p class="font-mono">info@medicalshop.ir</p>
+</div>
+<div class="mt-2 bg-slate-800 rounded-lg p-3 text-center">
+<p class="text-xs text-slate-400 mb-1">ساعات پاسخگویی:</p>
+<p class="text-sm text-white font-bold">شنبه تا چهارشنبه ۸ الی ۲۰</p>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-slate-500 text-sm">© ۱۴۰۳ تمامی حقوق برای مدیکال شاپ محفوظ است.</p>
+<div class="flex gap-4">
+<div class="w-10 h-7 bg-white/10 rounded flex items-center justify-center text-[8px] text-white">VISA</div>
+<div class="w-10 h-7 bg-white/10 rounded flex items-center justify-center text-[8px] text-white">MASTER</div>
+<div class="w-10 h-7 bg-white/10 rounded flex items-center justify-center text-[8px] text-white">AMEX</div>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

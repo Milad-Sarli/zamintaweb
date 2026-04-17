@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Dana';
+    src: url('/fonts/dana/Dana-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dana';
+    src: url('/fonts/dana/Dana-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dana';
+    src: url('/fonts/dana/Dana-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kalameh';
+    src: url('/fonts/kalameh/KalamehWeb-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kalameh';
+    src: url('/fonts/kalameh/KalamehWeb-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kalameh';
+    src: url('/fonts/kalameh/KalamehWeb-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Filament Specific Heading Styles */
+.fi-header-heading,
+.fi-section-header-heading,
+.fi-ta-header-heading,
+.fi-modal-heading,
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Kalameh', sans-serif !important;
+}
+
+body {
+    font-family: 'Dana', sans-serif;
+}
