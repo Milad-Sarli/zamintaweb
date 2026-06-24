@@ -36,11 +36,11 @@ return [
     ],
 
     'ippanel' => [
-        'username' => env('IPPANEL_USERNAME', 'parsteb115'),
+        'username' => env('IPPANEL_USERNAME', 'ahnaf'),
         'password' => env('IPPANEL_PASSWORD', 'React2149??'),
         'originator' => env('IPPANEL_ORIGINATOR', '+983000505'),
         'patterns' => [
-            'otp' => env('IPPANEL_PATTERN_OTP', 'gnenow5grgebii2'),
+            'otp' => env('IPPANEL_PATTERN_OTP', 'wps3kktg1wkjhpu'),
         ],
     ],
 

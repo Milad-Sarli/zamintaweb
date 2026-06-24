@@ -5,9 +5,9 @@
 <footer class="border-t border-slate-200 bg-slate-950 text-slate-300 dark:border-zinc-800">
     <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-3 lg:px-8">
         <div>
-            <h3 class="text-2xl font-black text-white">آکادمی توسعه وب</h3>
+            <h3 class="text-2xl font-black text-white">آکادمی Tekmil</h3>
             <p class="mt-4 text-sm leading-8 text-slate-400">
-                سامانه ثبت نام دوره های آموزشی با ارسال فیش پرداخت، تایید دستی توسط ادمین و داشبورد اختصاصی هنرجو برای مشاهده ویدیوها.
+                دوره های آموزش برنامه نویسی با پشتیبانی کامل، جلسات ویدیویی با کیفیت و مسیر یادگیری منظم.
             </p>
         </div>
         <div>

@@ -13,6 +13,8 @@
         "filament/filament": "^4.1",
         "flowframe/laravel-trend": "^0.4.0",
         "inertiajs/inertia-laravel": "^2.0.10",
+        "intervention/image": "*",
+        "intervention/image-laravel": "*",
         "jeffersongoncalves/filament-logo": "^2.0",
         "laravel/fortify": "^1.32",
         "laravel/framework": "^12.34.0",

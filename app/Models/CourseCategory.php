@@ -14,8 +14,13 @@ class CourseCategory extends Model
         'title',
         'slug',
         'description',
+        'cover_image',
         'sort_order',
         'is_active',
+    ];
+
+    protected $appends = [
+        'cover_image_url',
     ];
 
     protected function casts(): array
@@ -28,5 +33,14 @@ class CourseCategory extends Model
     public function courses(): HasMany
     {
         return $this->hasMany(Course::class)->orderBy('sort_order');
+    }
+
+    public function getCoverImageUrlAttribute(): ?string
+    {
+        if (!$this->cover_image) {
+            return null;
+        }
+
+        return asset('storage/' . $this->cover_image);
     }
 }

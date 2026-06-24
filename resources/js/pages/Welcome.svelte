@@ -13,6 +13,7 @@
         id: number;
         title: string;
         slug: string;
+        cover_image_url?: string | null;
         courses_count?: number;
     }
 
@@ -88,7 +89,7 @@
 </script>
 
 <svelte:head>
-    <title>آکادمی آموزش طراحی و توسعه وب</title>
+    <title>آکادمی Tekmil | دوره های آموزش برنامه نویسی</title>
 </svelte:head>
 
 <PublicLayout>
@@ -191,18 +192,45 @@
         <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between gap-4">
                 <div>
-                    <h2 class="text-3xl font-black text-slate-900 dark:text-white">دسته بندی های آموزشی</h2>
-                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">ساختار آموزشی خود را براساس مسیرهای واقعی یادگیری مدیریت کنید.</p>
+                    <h2 class="text-3xl font-black text-slate-900 dark:text-white">مسیرهای یادگیری</h2>
+                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">از مقدمات تا تخصص، هر مسیر رو گام به گام برو.</p>
                 </div>
-                <Link href="/courses" class="text-sm font-bold text-sky-700 dark:text-sky-300">آرشیو دوره ها</Link>
+                <Link href="/courses" class="text-sm font-bold text-sky-700 dark:text-sky-300">همه مسیرها</Link>
             </div>
 
-            <div class="mt-8 grid gap-4 md:grid-cols-3">
-                {#each categories as category (category.id)}
-                    <Link href={`/courses?category=${category.slug}`} class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
-                        <div class="text-sm text-sky-700 dark:text-sky-300">{toPersianDigits(category.courses_count ?? 0)} دوره</div>
-                        <h3 class="mt-3 text-xl font-bold text-slate-900 dark:text-white">{category.title}</h3>
-                        <p class="mt-4 text-sm text-slate-500 dark:text-slate-400">دوره های مرتبط با این مسیر آموزشی را ببینید.</p>
+            <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {#each categories as category, i (category.id)}
+                    <Link
+                        href={`/courses?category=${category.slug}`}
+                        class="group relative h-52 overflow-hidden rounded-[2rem] shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl [&:nth-child(1)]:md:col-span-2 [&:nth-child(1)]:lg:row-span-2 [&:nth-child(1)]:lg:h-auto"
+                    >
+                        {#if category.cover_image_url}
+                            <img
+                                src={category.cover_image_url}
+                                alt={category.title}
+                                class="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/10 transition-all duration-500 group-hover:from-black/80"></div>
+                        {:else}
+                            <div class="flex h-full w-full items-center justify-center bg-sky-600 transition-all duration-500 group-hover:bg-sky-700 dark:bg-sky-800 dark:group-hover:bg-sky-700"></div>
+                        {/if}
+
+                        <div class="absolute inset-0 flex flex-col justify-end p-6">
+                            <div class="mb-2 flex items-center gap-2">
+                                <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/20 text-sm font-black text-white backdrop-blur-sm">
+                                    {toPersianDigits(i + 1)}
+                                </span>
+                                <span class="rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-md">
+                                    {toPersianDigits(category.courses_count ?? 0)} دوره
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-black text-white drop-shadow-lg">{category.title}</h3>
+                            <div class="mt-2 flex items-center gap-1.5 text-sm font-medium text-white/80 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                                <span>مشاهده دوره‌ها</span>
+                                <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                            </div>
+                        </div>
                     </Link>
                 {/each}
             </div>
@@ -221,21 +249,34 @@
 
                 <div class="mt-8 grid gap-6 lg:grid-cols-3">
                     {#each featuredCourses as course (course.id)}
-                        <article class="rounded-[2rem] bg-white p-6 shadow-sm dark:bg-zinc-950">
-                            <div class="flex items-center justify-between gap-3 text-sm text-slate-500 dark:text-slate-400">
-                                <span>{course.category?.title ?? 'بدون دسته بندی'}</span>
-                                <span>{toPersianDigits(course.episodes_count ?? 0)} جلسه</span>
-                            </div>
-                            <h3 class="mt-4 text-2xl font-black text-slate-900 dark:text-white">{course.title}</h3>
-                            <p class="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{course.short_description ?? 'برای این دوره هنوز توضیح کوتاه ثبت نشده است.'}</p>
-                            <div class="mt-6 flex items-center justify-between">
-                                <div>
-                                    <div class="text-xs text-slate-500 dark:text-slate-400">شهریه دوره</div>
-                                    <div class="mt-1 text-xl font-black text-slate-900 dark:text-white">{formatPrice(course.price)} تومان</div>
+                        <article class="group overflow-hidden rounded-[2rem] bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-zinc-950">
+                            {#if course.cover_image_url}
+                                <div class="relative h-44 overflow-hidden">
+                                    <img src={course.cover_image_url} alt={course.title} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                                    <div class="absolute bottom-3 right-4 flex items-center gap-2">
+                                        <span class="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">{course.category?.title ?? 'بدون دسته بندی'}</span>
+                                        <span class="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">{toPersianDigits(course.episodes_count ?? 0)} جلسه</span>
+                                    </div>
                                 </div>
-                                <Link href={`/courses/${course.slug}`} class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-bold text-white dark:bg-sky-500">
-                                    جزئیات دوره
-                                </Link>
+                            {:else}
+                                <div class="flex items-center justify-between gap-3 px-6 pt-6 text-sm text-slate-500 dark:text-slate-400">
+                                    <span>{course.category?.title ?? 'بدون دسته بندی'}</span>
+                                    <span>{toPersianDigits(course.episodes_count ?? 0)} جلسه</span>
+                                </div>
+                            {/if}
+                            <div class="p-6">
+                                <h3 class="text-2xl font-black text-slate-900 dark:text-white">{course.title}</h3>
+                                <p class="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{course.short_description ?? 'برای این دوره هنوز توضیح کوتاه ثبت نشده است.'}</p>
+                                <div class="mt-6 flex items-center justify-between">
+                                    <div>
+                                        <div class="text-xs text-slate-500 dark:text-slate-400">شهریه دوره</div>
+                                        <div class="mt-1 text-xl font-black text-slate-900 dark:text-white">{formatPrice(course.price)} تومان</div>
+                                    </div>
+                                    <Link href={`/courses/${course.slug}`} class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-bold text-white dark:bg-sky-500">
+                                        جزئیات دوره
+                                    </Link>
+                                </div>
                             </div>
                         </article>
                     {/each}
@@ -253,23 +294,34 @@
                 </div>
             </div>
 
-            <div class="mt-8 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-                <div class="grid gap-px bg-slate-200 dark:bg-zinc-800 md:grid-cols-2 xl:grid-cols-3">
-                    {#each latestCourses as course (course.id)}
-                        <article class="bg-white p-6 dark:bg-zinc-950">
-                            <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {#each latestCourses as course (course.id)}
+                    <article class="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-950">
+                        {#if course.cover_image_url}
+                            <div class="relative h-40 overflow-hidden">
+                                <img src={course.cover_image_url} alt={course.title} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                                <div class="absolute bottom-3 right-4 flex items-center gap-1.5">
+                                    <span class="rounded-full bg-white/20 px-2.5 py-0.5 text-[11px] font-semibold text-white backdrop-blur-md">{course.level ?? 'عمومی'}</span>
+                                    <span class="rounded-full bg-white/20 px-2.5 py-0.5 text-[11px] font-semibold text-white backdrop-blur-md">{course.instructor_name ?? 'مدرس'}</span>
+                                </div>
+                            </div>
+                        {:else}
+                            <div class="flex items-center justify-between px-6 pt-6 text-xs text-slate-500 dark:text-slate-400">
                                 <span>{course.instructor_name ?? 'مدرس دوره ثبت نشده'}</span>
                                 <span>{course.level ?? 'سطح عمومی'}</span>
                             </div>
-                            <h3 class="mt-4 text-xl font-bold text-slate-900 dark:text-white">{course.title}</h3>
+                        {/if}
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">{course.title}</h3>
                             <p class="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{course.short_description ?? 'توضیحات این دوره به زودی تکمیل می شود.'}</p>
                             <div class="mt-6 flex items-center justify-between">
                                 <div class="text-sm font-bold text-slate-900 dark:text-white">{formatPrice(course.price)} تومان</div>
                                 <Link href={`/courses/${course.slug}`} class="text-sm font-bold text-sky-700 dark:text-sky-300">مشاهده دوره</Link>
                             </div>
-                        </article>
-                    {/each}
-                </div>
+                        </div>
+                    </article>
+                {/each}
             </div>
         </section>
     </ScrollReveal>

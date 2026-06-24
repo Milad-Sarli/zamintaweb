@@ -73,7 +73,7 @@
                     <SheetContent side="start" class="w-75 p-6">
                         <SheetTitle class="sr-only">Navigation Menu</SheetTitle>
                         <SheetHeader class="flex justify-start text-start">
-                            <AppLogoIcon class="size-6 fill-current text-black dark:text-white" />
+                            <AppLogoIcon class="size-6" />
                         </SheetHeader>
                         <div class="flex h-full flex-1 flex-col justify-between space-y-4 py-6">
                             <nav class="-mx-3 space-y-1">

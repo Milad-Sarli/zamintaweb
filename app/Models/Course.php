@@ -33,6 +33,8 @@ class Course extends Model
         'is_featured',
     ];
 
+    protected $appends = ['cover_image_url'];
+
     protected function casts(): array
     {
         return [

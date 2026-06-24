@@ -33,6 +33,7 @@ class HandleInertiaRequests extends Middleware
                 'success' => $request->session()->get('success'),
                 'error' => $request->session()->get('error'),
                 'status' => $request->session()->get('status'),
+                'phone' => $request->session()->get('phone'),
             ],
             'courseCategories' => fn () => CourseCategory::query()
                 ->where('is_active', true)

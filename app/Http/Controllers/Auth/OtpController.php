@@ -27,6 +27,7 @@ class OtpController extends Controller
 
         return Inertia::render('auth/Login', [
             'status' => session('status'),
+            'phone' => session('phone'),
         ]);
     }
 
@@ -51,10 +52,10 @@ class OtpController extends Controller
 
         // Send SMS
         $smsService->send('otp', $phone, [
-            'password' => (string) $otp,
+            'code' => (string) $otp,
         ]);
 
-        return back()->with('status', 'code-sent');
+        return back()->with('status', 'code-sent')->with('phone', $phone);
     }
 
     public function verifyOtp(Request $request)
@@ -90,7 +91,10 @@ class OtpController extends Controller
 
         $request->session()->regenerate();
 
-        // Redirect to intended url (where they came from) or home
-        return redirect()->intended(route('home'));
+        // Return Inertia render so frontend shows welcome message then redirects
+        return Inertia::render('auth/Login', [
+            'status' => 'just_logged_in',
+            'phone' => $phone,
+        ]);
     }
 }
